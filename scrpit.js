@@ -2,7 +2,7 @@
 /* Vad ska vi göra här?*/
 console.log('test');
 
-const searchInput = null;
+
 const bookList = [
     {
         id: 1,
@@ -15,35 +15,25 @@ const bookList = [
         title: 'Hamlet'
     }
 ];
+//const searchField = document.children[0].children[1].children[1].children[1]; //[0] är första plasten i listan, [1] är andra osv 
+const searchField = document.getElementById('searchField');
+console.log(searchField) // skirver ut (html element)
 
-/* /*Deklarerar en funktionen
-    const handleKeyPress = () => {
-    console.log('Handle keypress');
-} */
-
-/* en annan funktion
-function test(func) {
-    console.log(func);
-} */
-
-/* Anropar frunktionen 
-test(handleKeyPress()); */
-
-
-/*Ett annat sätt att deklarera funktionen handle keypress */
-/* function handleKeyPress ()) {
-    console.log('Handle keypress');
-} */
+//keydown & keyup
+//searchField.addEventListener("keydown", (e) => console.log(e.target.value));
+//searchField.addEventListener("keyup", (e) => console.log(e.key));
+//searchField.addEventListener("keyup", (e) => console.log(e.target.value));
+searchField.addEventListener("keyup", handleKeyPress);
 
 
 /*Vi utvecklar function handelKeyPress*/
-function handleKeyPress (input) {
+function handleKeyPress (e) {
     /* Ta emot/läsa av värdet i input fältet.
         Sen ska den sickade värdet till en annan funktion "searchBooks"
         Sen returnerar "Searchbooks" en filtrerad lista
         Den filtrerade listan sickas till "renderBookList", en funktion som ritar ut själva listan 
         */
-    searchBooks(input);
+    searchBooks(e.target.value);
 }
 
 
@@ -65,11 +55,11 @@ function searchBooks(searchTerm) {
     renderBookList(filteredList);
 }
 
-handleKeyPress('e');
-
 
 function renderBookList(list) {
     /* element i HTML-listan visas/dölj bereonde på listans innehåll. Funktionen är till för att manipulera HTML så att ul blir fyllt med li element som motsvarar innehållet i listan*/
     
     console.log(list)
 }
+
+
