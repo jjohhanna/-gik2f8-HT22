@@ -59,7 +59,7 @@ function searchBooks(searchTerm) {
     for(let i = 0; i < bookList.length; i++) {/* for-loop */
         const title = bookList[i].title.toLowerCase() /* variabel som vi även har gjort till små bokstäver (Lower Case) */
         if(title.indexOf(searchTerm.toLowerCase()) >= 0){
-            filteredList.push(bookList[0]); /* Vi vill ha hela elementet/objektet och inte bara titeln */
+            filteredList.push(bookList[i]); /* Vi vill ha hela elementet/objektet och inte bara titeln */
         } 
     }
     renderBookList(filteredList);
