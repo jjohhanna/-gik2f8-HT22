@@ -55,25 +55,23 @@ function searchBooks(searchTerm) {
 // varjge gång vi skriver in något ny bokstav i inputfält, körs denna lopp igen:
 function renderBookList(bookList) { // OBS booklist är inte samma som booklist på rad 4! Denna booklist existerar endast innaför denna funktion.
     /* element i HTML-listan visas/dölj bereonde på listans innehåll. Funktionen är till för att manipulera HTML så att ul blir fyllt med li element som motsvarar innehållet i listan*/
-    let html = `<ul class="book-list rounded-md border-2 border-blue-400 bg-white w-full mx-auto">`;
+
+    BookList(bookList); // Vi anropar funktionenen booklist
+ /*    let html = `<ul class="book-list rounded-md border-2 border-blue-400 bg-white w-full mx-auto">`;
     for (let i = 0; i < bookList.length; i++) {
         html += `<li
                     class="book-list__item mb-2 mx-2 last:mb-0 p-3 text-indigo-900 last:border-b-0 border-b borxer-indigo-700 cursor-pointer">
                     ${bookList[i].author} – ${bookList[i].title}
                     </li>`;
                     // ${} varielber desinera efter $ och inom {} 
-                    // varialber används för att visa upp listelement */
+                    // varialber används för att visa upp listelement 
     }
-    html += ` </ul>`; 
-
-
-
-
+    html += ` </ul>`;  */
 
     //lägger till element och tar bort existerande element genom en loop:
         // Gäller varjge gång man skriver in i input fällt
 
-    const existingElement = document.querySelector(".book-list"); //det här elementet finns först när man skrivt in det fösta tecknet
+ /*     const existingElement = document.querySelector(".book-list"); //det här elementet finns först när man skrivt in det fösta tecknet
     console.log(existingElement); //skriver ut elementet ovan
 
     const root = document.getElementById('root');   
@@ -85,5 +83,5 @@ function renderBookList(bookList) { // OBS booklist är inte samma som booklist 
     //root.appendChild(htmlElement); //skapa html text OBS appen child visar ej listan, går bort
      //const htmlElement = document.createElement('ul'); //skapa html element 
     
-    
+     */
 }
