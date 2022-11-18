@@ -56,32 +56,19 @@ function searchBooks(searchTerm) {
 function renderBookList(bookList) { // OBS booklist är inte samma som booklist på rad 4! Denna booklist existerar endast innaför denna funktion.
     /* element i HTML-listan visas/dölj bereonde på listans innehåll. Funktionen är till för att manipulera HTML så att ul blir fyllt med li element som motsvarar innehållet i listan*/
 
-    BookList(bookList); // Vi anropar funktionenen booklist
- /*    let html = `<ul class="book-list rounded-md border-2 border-blue-400 bg-white w-full mx-auto">`;
-    for (let i = 0; i < bookList.length; i++) {
-        html += `<li
-                    class="book-list__item mb-2 mx-2 last:mb-0 p-3 text-indigo-900 last:border-b-0 border-b borxer-indigo-700 cursor-pointer">
-                    ${bookList[i].author} – ${bookList[i].title}
-                    </li>`;
-                    // ${} varielber desinera efter $ och inom {} 
-                    // varialber används för att visa upp listelement 
-    }
-    html += ` </ul>`;  */
-
+    
     //lägger till element och tar bort existerande element genom en loop:
         // Gäller varjge gång man skriver in i input fällt
+        const existingElement = document.querySelector(".book-list"); //det här elementet finns först när man skrivt in det fösta tecknet
+        console.log(existingElement); //skriver ut elementet ovan
 
- /*     const existingElement = document.querySelector(".book-list"); //det här elementet finns först när man skrivt in det fösta tecknet
-    console.log(existingElement); //skriver ut elementet ovan
-
-    const root = document.getElementById('root');   
-    if(existingElement){
+        const root = document.getElementById('root');   
+        if(existingElement){
         root.removeChild(existingElement); // kan man i andra sammanhang använda replaceChild
     }
-
-    root.insertAdjacentHTML("beforeend", html); //skapa html text. Kan använda olika kombinationer av before.begin, beforeafter, beforeend osv
-    //root.appendChild(htmlElement); //skapa html text OBS appen child visar ej listan, går bort
+    if(bookList.length > 0) {
+        root.insertAdjacentHTML("beforeend", BookList(bookList)); //skapa html text. Kan använda olika kombinationer av before.begin, beforeafter, beforeend osv
+        //root.appendChild(htmlElement); //skapa html text OBS appen child visar ej listan, går bort
      //const htmlElement = document.createElement('ul'); //skapa html element 
-    
-     */
+    }
 }
