@@ -1,7 +1,5 @@
 'use strict';
 /* Vad ska vi göra här?*/
-console.log('test');
-
 
 const bookList = [
     {
@@ -17,7 +15,6 @@ const bookList = [
 ];
 //const searchField = document.children[0].children[1].children[1].children[1]; //[0] är första plasten i listan, [1] är andra osv 
 const searchField = document.getElementById('searchField');
-console.log(searchField) // skirver ut (html element)
 
 //keydown & keyup
 //searchField.addEventListener("keydown", (e) => console.log(e.target.value));
@@ -55,11 +52,38 @@ function searchBooks(searchTerm) {
     renderBookList(filteredList);
 }
 
-
-function renderBookList(list) {
+// varjge gång vi skriver in något ny bokstav i inputfält, körs denna lopp igen:
+function renderBookList(bookList) { // OBS booklist är inte samma som booklist på rad 4! Denna booklist existerar endast innaför denna funktion.
     /* element i HTML-listan visas/dölj bereonde på listans innehåll. Funktionen är till för att manipulera HTML så att ul blir fyllt med li element som motsvarar innehållet i listan*/
+    let html = `<ul class="book-list rounded-md border-2 border-blue-400 bg-white w-full mx-auto">`;
+    for (let i = 0; i < bookList.length; i++) {
+        html += `<li
+                    class="book-list__item mb-2 mx-2 last:mb-0 p-3 text-indigo-900 last:border-b-0 border-b borxer-indigo-700 cursor-pointer">
+                    ${bookList[i].author} – ${bookList[i].title}
+                    </li>`;
+                    // ${} varielber desinera efter $ och inom {} 
+                    // varialber används för att visa upp listelement */
+    }
+    html += ` </ul>`; 
+
+
+
+
+
+    //lägger till element och tar bort existerande element genom en loop:
+        // Gäller varjge gång man skriver in i input fällt
+
+    const existingElement = document.querySelector(".book-list"); //det här elementet finns först när man skrivt in det fösta tecknet
+    console.log(existingElement); //skriver ut elementet ovan
+
+    const root = document.getElementById('root');   
+    if(existingElement){
+        root.removeChild(existingElement); // kan man i andra sammanhang använda replaceChild
+    }
+
+    root.insertAdjacentHTML("beforeend", html); //skapa html text. Kan använda olika kombinationer av before.begin, beforeafter, beforeend osv
+    //root.appendChild(htmlElement); //skapa html text OBS appen child visar ej listan, går bort
+     //const htmlElement = document.createElement('ul'); //skapa html element 
     
-    console.log(list)
+    
 }
-
-
