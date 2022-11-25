@@ -13,30 +13,13 @@ const bookList = [
     }
 ];
 
-searchField.addEventListener("keyup", (e) => searchBooks(e.target.value));
-
-// använder array filter som gör sökning på både titel och fölrfattare möjligt.    
-/*function searchBooks(searchTerm) {
-    // Variabel som anger Aray, hade vi gjort ne sträck som vi hade velat kunna förändra hade vi inte kunnat ha const, utan behövt använda let  
-
-    const filteredList = bookList.filter(({title , author}) => 
-    title.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0 || 
-    author.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0
-    );   
-
-    renderBookList(filteredList);*/
-
-    
-// ett annat sätt att skriva ovanstående kod på
-function searchBooks(searchTerm) {
-    renderBookList(
-        bookList.filter(({title , author}) => 
-        title.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0 || 
-        author.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0
-        )
-    );
-     
-} 
+searchField.addEventListener("keyup", (e) =>  renderBookList(
+    bookList.filter(({title , author}) => {
+        const searchTerm = e.target.value.toLowerCase();
+        return title.toLowerCase().indexOf(searchTerm) >= 0 || author.toLowerCase().indexOf(searchTerm) >= 0;
+        })
+    )
+); 
 
 // varjge gång vi skriver in något ny bokstav i inputfält, körs denna lopp igen:
 function renderBookList(bookList) { // OBS booklist är inte samma som booklist på rad 4! Denna booklist existerar endast innaför denna funktion.
