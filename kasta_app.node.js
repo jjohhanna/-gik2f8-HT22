@@ -28,3 +28,19 @@ const server = http.createServer((req, res) => {
 server.listen ("5000", () => console.log('Server running on https://localhost:5000'));
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+// viktigt att ha en fil som heter .gitignore när man arberat med node och nodepaket 
+
+// git kommer då ignorera alla filer som matchar mönsteret som står i filen .gitignore
+// Hela express och alla moduler för extress behöver ligger i mappen node_modules

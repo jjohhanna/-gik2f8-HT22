@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/jjohhanna/-gik2f8-HT22/issues"
   },
-  "homepage": "https://github.com/jjohhanna/-gik2f8-HT22#readme"
+  "homepage": "https://github.com/jjohhanna/-gik2f8-HT22#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
